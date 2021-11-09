@@ -1,0 +1,12 @@
+<root>
+     <BehaviorTree>
+        <Sequence>
+            <BatteryOK/>
+            <SaySomething   message="taking to the skies" />
+            <TakeoffDrone   altitude="3.0"/>
+            <SaySomething   message="mission started..." />    
+            <LandDrone      gear_down="true"/>      
+            <SaySomething   message="mission completed!" />
+        </Sequence>
+     </BehaviorTree>
+ </root>
