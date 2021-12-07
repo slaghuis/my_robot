@@ -6,7 +6,7 @@
             <TakeoffDrone     altitude="4.0"/>
             <SaySomething     message="smile"/> 
             <GenerateFilename filename="{file}"/>
-            <SavePicture      filename="{file}"/>   
+            <SavePicture      path="pictures/" filename="{file}" />   
             <LandDrone        gear_down="true"/>      
             <SaySomething     message="mission completed!" />
             <SaveMap          filename="generated_map.ufo" />
