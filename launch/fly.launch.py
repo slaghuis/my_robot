@@ -138,16 +138,36 @@ def generate_launch_description():
         package="flight_control",
         executable="flight_control_node",
         parameters=[
-            {"mission_bt_file"         : "./src/my_robot/behaviour_trees/takeoff_land.xml"},
+            {"mission_bt_file"         : "./src/my_robot/behaviour_trees/takeoff_picture_land.xml"},
             {"navigation_bt_file"      : "./src/navigation_lite/behavior_trees/navigate.xml"},            
             {"minimum_battery_voltage" : 13.6}
         ]
     )
 
+    camera_node=Node(
+        package = 'camera_lite',
+        name = 'camera',
+        executable = 'camera_node',
+        output="screen",
+        emulate_tty=True,
+        parameters = [
+            {"frame_width"  : 640},
+            {"frame_height" : 480}
+        ]
+    )
+    picture_node=Node(
+        package = 'camera_lite',
+        name = 'picture_node',
+        executable = 'picture_node',
+        output="screen",
+        emulate_tty=True
+    )
+    ld.add_action(camera_node)
+    ld.add_action(picture_node)
     
-    # ld.add_action(sonar_sensor)
-    # ld.add_action(altitude_sensor)
-    # ld.add_action(lidar_sensor)
+    ld.add_action(sonar_sensor)
+    ld.add_action(altitude_sensor)
+    ld.add_action(lidar_sensor)
 
     ld.add_action(drone_node)
     ld.add_action(odom_tf2_broadcaster)
