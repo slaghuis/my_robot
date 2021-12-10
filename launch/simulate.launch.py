@@ -60,7 +60,12 @@ def generate_launch_description():
         name = 'vl53l1x_node',
         executable = 'vl53l1x_node',
         output="screen",
-        emulate_tty=True
+        emulate_tty=True,
+        parameters=[
+            {"timeout": 500},
+            {"timing_budget": 50000},
+            {"frequency": 25.0}
+        ]
     ) 
            
     config_map_server = os.path.join(
@@ -138,7 +143,7 @@ def generate_launch_description():
         package="flight_control",
         executable="flight_control_node",
         parameters=[
-            {"mission_bt_file"         : "./src/my_robot/behaviour_trees/takeoff_picture_land.xml"},
+            {"mission_bt_file"         : "./src/my_robot/behaviour_trees/takeoff_up_picture_down_land.xml"},
             {"navigation_bt_file"      : "./src/navigation_lite/behavior_trees/navigate.xml"},            
             {"minimum_battery_voltage" : 13.6}
         ]
@@ -152,7 +157,13 @@ def generate_launch_description():
         emulate_tty=True,
         parameters = [
             {"frame_width"  : 640},
-            {"frame_height" : 480}
+            {"frame_height" : 480},
+            {"device_id"    : 0},
+            {"frequency"    : 15.0},
+            {"frame_id"     : "camera"},
+            {"reliability"  : "reliable"},
+            {"history"      : "keep_last"},
+            {"depth"        : 5}
         ]
     )
     picture_node=Node(

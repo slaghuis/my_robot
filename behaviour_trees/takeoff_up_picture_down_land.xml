@@ -1,0 +1,16 @@
+<root>
+     <BehaviorTree>
+        <Sequence>
+            <BatteryOK/>
+            <SaySomething   message="taking to the skies" />
+            <TakeoffDrone   altitude="1"/>
+            <MoveDrone      goal="0;0;4;0"/>
+            <SaySomething     message="smile"/> 
+            <GenerateFilename filename="{file}"/>
+            <SavePicture      path="pictures/" filename="{file}" /> 
+            <MoveDrone      goal="0;0;1;0"/>
+            <LandDrone      gear_down="true"/>      
+            <SaySomething   message="mission completed!" />
+        </Sequence>
+     </BehaviorTree>
+ </root>
