@@ -146,7 +146,8 @@ def generate_launch_description():
         parameters=[
             {"mission_bt_file"         : "./src/my_robot/behaviour_trees/simulator.xml"},
             {"navigation_bt_file"      : "./src/navigation_lite/behavior_trees/navigate.xml"},            
-            {"minimum_battery_voltage" : 13.6}
+            {"minimum_battery_voltage" : 13.6},
+            {"use_ground_control"      : True}
         ]
     )
 
