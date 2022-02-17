@@ -1,7 +1,7 @@
 map_server:
   ros__parameters:
     map_topic: nav_lite/map
-    map_frame: odom
+    map_frame: map
     base_link_frame: base_link
 
 # List of sensors

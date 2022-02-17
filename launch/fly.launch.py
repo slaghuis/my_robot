@@ -28,7 +28,8 @@ def generate_launch_description():
         parameters=[
             {"connection_url": "serial:///dev/ttyAMA1:921600"},
             {"height_topic": "vl53l1x/range"},
-            {"height_sensor_z_offset": 0.153}
+            {"height_sensor_z_offset": 0.153},
+            {"use_height_sensor": False}
         ]
     )
         
@@ -117,6 +118,9 @@ def generate_launch_description():
         package = 'navigation_lite',
         name = 'planner_server',
         executable = 'planner_server',
+        parameters=[
+            {'bypass_planning' : True}
+        ], 
         output="screen",
         emulate_tty=True
     )
@@ -147,7 +151,8 @@ def generate_launch_description():
             {"mission_bt_file"         : "./src/my_robot/behaviour_trees/flight.xml"},
             {"navigation_bt_file"      : "./src/navigation_lite/behavior_trees/navigate.xml"},            
             {"minimum_battery_voltage" : 13.6},
-            {"use_ground_control"      : True}
+            {"use_ground_control"      : True},
+            {"drone_code"              : 42}
         ]
     )
 
