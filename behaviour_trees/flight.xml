@@ -3,7 +3,7 @@
         <Sequence>
             <BatteryOK/>
             <SaySomething   message="taking to the skies" />
-            <TakeoffDrone   altitude="1"/>
+            <TakeoffDrone   altitude="2"/>
             <MoveDrone      goal="0;0;4;0"/>
             <SaySomething     message="smile"/> 
             <GenerateFilename filename="{file}"/>
