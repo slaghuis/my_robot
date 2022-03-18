@@ -1,0 +1,19 @@
+<root>
+     <BehaviorTree>
+        <Sequence>
+            <BatteryOK/>
+            <SaySomething       message="Calculating camera model" />
+            <CameraModel        spatial_resolution="300" height="{height}" projected_width="{p_width}" projected_height="{p_height}" />
+            <SaySomething       message="Calculating the flight path" />
+            <SetBlackboard      output_key="area" value="1.5;5.0|5.0;0.0|16.0;1.0|18.0;25.0|2.0;15.0" />
+            <CalculateCoverage  area="{area}" height="{height}" projected_width="{p_width}" projected_height="{p_height}" path="{path}" />
+            <SaySomething       message="taking to the skies" />
+            <TakeoffDrone       altitude="{height}"/>
+            <SaySomething       message="mission started..." />
+            <Photogrammetry     path="{path}" />
+            <MoveDrone          goal="0.0;0.0;5.0;0.0"/>
+            <LandDrone          gear_down="true"/>      
+            <SaySomething       message="mission completed!" />
+        </Sequence>
+     </BehaviorTree>
+ </root>

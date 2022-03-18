@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>my_robot</name>
-  <version>0.1.1</version>
+  <version>0.1.2</version>
   <description>Collective package to launch the nodes of the Xeni Robotics drone as a single node</description>
   <maintainer email="eslaghuis@gmail.com">Eric Slaghuis</maintainer>
   <license>Apache License 2.0</license>

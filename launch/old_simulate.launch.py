@@ -148,7 +148,7 @@ def generate_launch_description():
         package="flight_control",
         executable="flight_control_node",
         parameters=[
-            {"mission_bt_file"         : "./src/my_robot/behaviour_trees/photogrammetry.xml"},
+            {"mission_bt_file"         : "./src/my_robot/behaviour_trees/simulator.xml"},
             {"navigation_bt_file"      : "./src/navigation_lite/behavior_trees/navigate.xml"},            
             {"minimum_battery_voltage" : 13.6},
             {"use_ground_control"      : True},
@@ -163,8 +163,8 @@ def generate_launch_description():
         output="screen",
         emulate_tty=True,
         parameters = [
-            {"frame_width"  : 1920},
-            {"frame_height" : 1080},
+            {"frame_width"  : 640},
+            {"frame_height" : 480},
             {"device_id"    : 0},
             {"frequency"    : 15.0},
             {"frame_id"     : "camera"},
@@ -180,49 +180,7 @@ def generate_launch_description():
         output="screen",
         emulate_tty=True
     )
-    
-    camera_model_node=Node(
-        package = 'coverage_planner',
-        name = 'camera_model_node',
-        executable = 'camera_model_node',
-        output="screen",
-        emulate_tty=True,
-        parameters = [
-            {"angle_of_view"      :  1.08559479},
-            {"image_resolution_x" :  1920},
-            {"image_resolution_y" :  1080}
-        ]
-    )
-
-    coverage_planner_node=Node(
-        package = 'coverage_planner',
-        name = 'coverage_planner_node',
-        executable = 'coverage_planner_node',
-        output="screen",
-        emulate_tty=True,
-        parameters = [
-            {"overlap"        :  0.1},
-            {"minimum_height" :  5.0},
-            {"maximum_height" : 30.0}
-        ]
-    )
-
-    photogrammetry_node=Node(
-        package = 'coverage_planner',
-        name = 'photogrammetry_node',
-        executable = 'photogrammetry_node',
-        output="screen",
-        emulate_tty=True,
-        parameters = [
-            {"images_folder" : "./"}
-        ]
-    )
-    
-    ld.add_action(camera_model_node)
-    ld.add_action(coverage_planner_node)
-    ld.add_action(photogrammetry_node)
-    
-    # ld.add_action(camera_node)
+    ld.add_action(camera_node)
     ld.add_action(picture_node)
 
     
