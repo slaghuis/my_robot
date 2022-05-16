@@ -14,8 +14,9 @@ def generate_launch_description():
         parameters = [
             {"frame_id"               : "map"},
             {"resolution"             : 0.1},
-            {"sensor_model.max_range" : 5.0},
-            {"frequency"    : 15.0},
+            {"sensor_model.max_range" : 6.0},
+            {"publish_free_space"     : True},            
+            {"latch"                  : False},
             {"octomap_path" : "/home/eric/ros_ws/src/my_robot/maps/fr_campus.bt"}
         ],    
         remappings = [
