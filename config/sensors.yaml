@@ -1,8 +1,7 @@
-map_server:
+sensor_pointcloud:
   ros__parameters:
-    map_topic: nav_lite/map
-    map_frame: map
-    base_link_frame: base_link
+    pointcloud_topic: sensors/pointcloud
+    pointcloud_frame: base_link
 
 # List of sensors
     sensors: [ sensor0, sensor1, sensor2 ]
