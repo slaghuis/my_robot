@@ -31,9 +31,9 @@ def generate_launch_description():
              ]
     )
     
-    odom_tf2_broadcaster = Node(
+    frame_broadcaster = Node(
         package="drone",
-        executable="odom_tf2_broadcaster",
+        executable="frame_broadcaster",
         output="screen",
         emulate_tty=True
     )    
@@ -42,6 +42,6 @@ def generate_launch_description():
     ld.add_action(map_odom_tf)
     ld.add_action(map_odom_ned_tf)
     ld.add_action(drone_node)
-    ld.add_action(odom_tf2_broadcaster)
+    ld.add_action(frame_broadcaster)
 
     return ld
